@@ -64,7 +64,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
-        <exec.mainClass>apresentacao.Main</exec.mainClass>
+        <exec.mainClass>apresentacao.MainFrame</exec.mainClass>
     </properties>
     <name>AtendimentoHospital</name>
 </project>
