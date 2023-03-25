@@ -1,16 +1,18 @@
 package negocio;
 
-import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+@Entity
 @Table(name = "pacientes")
-public class Paciente implements Serializable {
+public class Paciente extends Entidade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -19,8 +21,16 @@ public class Paciente implements Serializable {
     private String nome;
     @Column
     private String email;
-    @OneToMany(mappedBy = "paciente")
+    @OneToMany(mappedBy = "paciente", fetch = FetchType.LAZY)
     private Collection<Atendimento> atendimentos;
+
+    public Paciente() {
+    }
+
+    public Paciente(String nome, String email) {
+        this.nome = nome;
+        this.email = email;
+    }
 
     public int getId() {
         return id;
@@ -48,5 +58,10 @@ public class Paciente implements Serializable {
 
     public Collection<Atendimento> getAtendimentos() {
         return atendimentos;
+    }
+    
+    @Override
+    public String toString() {
+        return getId() + " - " + getNome() + " - " + getEmail();
     }
 }

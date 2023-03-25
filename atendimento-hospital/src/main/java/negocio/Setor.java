@@ -1,10 +1,10 @@
 package negocio;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,14 +13,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "setores")
-public class Setor implements Serializable {
+public class Setor extends Entidade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id")
     private int id;
     @Column
     private String descricao;
-    @OneToMany(mappedBy = "setor")
+    @OneToMany(mappedBy = "setor", fetch = FetchType.LAZY)
     private Collection<Funcionario> funcionarios = new ArrayList<Funcionario>();
 
     public Setor() {
@@ -30,12 +30,9 @@ public class Setor implements Serializable {
         this.descricao = descricao;
     }
 
+    @Override
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getDescricao() {
@@ -53,5 +50,9 @@ public class Setor implements Serializable {
     public void setFuncionarios(Collection<Funcionario> funcionarios) {
         this.funcionarios = funcionarios;
     }
-    
+
+    @Override
+    public String toString() {
+        return getId() + " - " + getDescricao() + " - " + getFuncionarios().size() + " funcionário" + (getFuncionarios().size() != 1 ? "s" : "");
+    }
 }

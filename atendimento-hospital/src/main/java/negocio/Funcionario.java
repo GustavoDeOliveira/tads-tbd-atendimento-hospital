@@ -1,9 +1,9 @@
 package negocio;
 
-import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "funcionarios")
-public class Funcionario implements Serializable {
+public class Funcionario extends Entidade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -26,15 +26,21 @@ public class Funcionario implements Serializable {
     private String senha;
     @ManyToOne
     private Setor setor;
-    @OneToMany(mappedBy = "funcionario")
+    @OneToMany(mappedBy = "funcionario", fetch = FetchType.LAZY)
     private Collection<Atendimento> atendimentos;
 
-    public int getId() {
-        return id;
+    protected Funcionario() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Funcionario(String nome, String email, String senha) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+    }
+
+    @Override
+    public int getId() {
+        return id;
     }
 
     public String getNome() {
@@ -77,4 +83,8 @@ public class Funcionario implements Serializable {
         this.atendimentos = atendimentos;
     }
     
+    @Override
+    public String toString() {
+        return getId() + " - " + getNome() + " - " + getEmail() + (getSetor() != null ? " - " + getSetor().getDescricao() : "");
+    }
 }
