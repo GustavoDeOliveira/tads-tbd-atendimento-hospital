@@ -19,7 +19,7 @@ public class Atendimento extends Entidade {
     @Column
     private int id;
     @Column
-    @Temporal(value = TemporalType.TIME)
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date dataAtendimento;
     @Column
     private String diagnostico;
