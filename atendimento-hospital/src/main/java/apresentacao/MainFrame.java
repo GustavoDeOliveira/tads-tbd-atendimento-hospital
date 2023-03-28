@@ -55,6 +55,9 @@ public class MainFrame extends javax.swing.JFrame {
         bSalvarSetor = new javax.swing.JButton();
         spListagemSetores = new javax.swing.JScrollPane();
         liSetores = new javax.swing.JList<>();
+        tbExcluirSetor = new javax.swing.JToggleButton();
+        bConfirmarExcluirSetor = new javax.swing.JButton();
+        lConfirmarExcluirSetor = new javax.swing.JLabel();
         pAbaFuncionarios = new javax.swing.JPanel();
         lTituloFuncionarios = new javax.swing.JLabel();
         tfNomeFuncionario = new javax.swing.JTextField();
@@ -68,6 +71,9 @@ public class MainFrame extends javax.swing.JFrame {
         lSetorFuncionario = new javax.swing.JLabel();
         spListagemFuncionarios = new javax.swing.JScrollPane();
         liFuncionarios = new javax.swing.JList<>();
+        lConfirmarExcluirFuncionario = new javax.swing.JLabel();
+        bConfirmarExcluirFuncionario = new javax.swing.JButton();
+        tbExcluirFuncionario = new javax.swing.JToggleButton();
         pAbaPacientes = new javax.swing.JPanel();
         lTituloPacientes = new javax.swing.JLabel();
         tfNomePaciente = new javax.swing.JTextField();
@@ -77,6 +83,9 @@ public class MainFrame extends javax.swing.JFrame {
         bSalvarPaciente = new javax.swing.JButton();
         spListagemPacientes = new javax.swing.JScrollPane();
         liPacientes = new javax.swing.JList<>();
+        lConfirmarExcluirPaciente = new javax.swing.JLabel();
+        bConfirmarExcluirPaciente = new javax.swing.JButton();
+        tbExcluirPaciente = new javax.swing.JToggleButton();
         pAbaAtendimentos = new javax.swing.JPanel();
         lTituloAtendimentos = new javax.swing.JLabel();
         lFuncionarioAtendimento = new javax.swing.JLabel();
@@ -93,6 +102,9 @@ public class MainFrame extends javax.swing.JFrame {
         bSalvarAtendimento = new javax.swing.JButton();
         spListagemAtendimentos = new javax.swing.JScrollPane();
         liAtendimentos = new javax.swing.JList<>();
+        lConfirmarExcluirAtendimento = new javax.swing.JLabel();
+        bConfirmarExcluirAtendimento = new javax.swing.JButton();
+        tbExcluirAtendimento = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,36 +143,63 @@ public class MainFrame extends javax.swing.JFrame {
         });
         spListagemSetores.setViewportView(liSetores);
 
+        tbExcluirSetor.setText("Excluir");
+        tbExcluirSetor.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tbExcluirSetorStateChanged(evt);
+            }
+        });
+
+        bConfirmarExcluirSetor.setText("Confirmar");
+        bConfirmarExcluirSetor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bConfirmarExcluirSetorActionPerformed(evt);
+            }
+        });
+
+        lConfirmarExcluirSetor.setText("Certeza?");
+
         javax.swing.GroupLayout pAbaSetoresLayout = new javax.swing.GroupLayout(pAbaSetores);
         pAbaSetores.setLayout(pAbaSetoresLayout);
         pAbaSetoresLayout.setHorizontalGroup(
             pAbaSetoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAbaSetoresLayout.createSequentialGroup()
-                .addComponent(lTituloSetores)
-                .addGap(400, 768, Short.MAX_VALUE))
             .addGroup(pAbaSetoresLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(pAbaSetoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spListagemSetores)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAbaSetoresLayout.createSequentialGroup()
-                        .addComponent(lDescricaoSetor)
+                    .addGroup(pAbaSetoresLayout.createSequentialGroup()
+                        .addComponent(lTituloSetores)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lConfirmarExcluirSetor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfDescricaoSetor)
+                        .addComponent(bConfirmarExcluirSetor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bSalvarSetor, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tbExcluirSetor, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pAbaSetoresLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pAbaSetoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(spListagemSetores)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAbaSetoresLayout.createSequentialGroup()
+                                .addComponent(lDescricaoSetor)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfDescricaoSetor, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bSalvarSetor, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         pAbaSetoresLayout.setVerticalGroup(
             pAbaSetoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAbaSetoresLayout.createSequentialGroup()
-                .addComponent(lTituloSetores)
+                .addGroup(pAbaSetoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lTituloSetores)
+                    .addComponent(tbExcluirSetor)
+                    .addComponent(bConfirmarExcluirSetor)
+                    .addComponent(lConfirmarExcluirSetor))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pAbaSetoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lDescricaoSetor)
                     .addComponent(tfDescricaoSetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bSalvarSetor))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spListagemSetores, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+                .addComponent(spListagemSetores, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -210,42 +249,70 @@ public class MainFrame extends javax.swing.JFrame {
         });
         spListagemFuncionarios.setViewportView(liFuncionarios);
 
+        lConfirmarExcluirFuncionario.setText("Certeza?");
+
+        bConfirmarExcluirFuncionario.setText("Confirmar");
+        bConfirmarExcluirFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bConfirmarExcluirFuncionarioActionPerformed(evt);
+            }
+        });
+
+        tbExcluirFuncionario.setText("Excluir");
+        tbExcluirFuncionario.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tbExcluirFuncionarioStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout pAbaFuncionariosLayout = new javax.swing.GroupLayout(pAbaFuncionarios);
         pAbaFuncionarios.setLayout(pAbaFuncionariosLayout);
         pAbaFuncionariosLayout.setHorizontalGroup(
             pAbaFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAbaFuncionariosLayout.createSequentialGroup()
-                .addComponent(lTituloFuncionarios)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(pAbaFuncionariosLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(pAbaFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spListagemFuncionarios)
                     .addGroup(pAbaFuncionariosLayout.createSequentialGroup()
-                        .addGroup(pAbaFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lNomeFuncionario)
-                            .addComponent(lEmailFuncionario))
+                        .addComponent(lTituloFuncionarios)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lConfirmarExcluirFuncionario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pAbaFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfNomeFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
-                            .addComponent(tfEmailFuncionario))
+                        .addComponent(bConfirmarExcluirFuncionario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pAbaFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lSenhaFuncionario)
-                            .addComponent(lSetorFuncionario))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tbExcluirFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pAbaFuncionariosLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(pAbaFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(spListagemFuncionarios)
                             .addGroup(pAbaFuncionariosLayout.createSequentialGroup()
-                                .addComponent(cbSetorFuncionario, 0, 235, Short.MAX_VALUE)
+                                .addGroup(pAbaFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lNomeFuncionario)
+                                    .addComponent(lEmailFuncionario))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bSalvarFuncionario))
-                            .addComponent(tfSenhaFuncionario))))
+                                .addGroup(pAbaFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tfNomeFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
+                                    .addComponent(tfEmailFuncionario))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pAbaFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lSenhaFuncionario)
+                                    .addComponent(lSetorFuncionario))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pAbaFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pAbaFuncionariosLayout.createSequentialGroup()
+                                        .addComponent(cbSetorFuncionario, 0, 235, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(bSalvarFuncionario))
+                                    .addComponent(tfSenhaFuncionario))))))
                 .addContainerGap())
         );
         pAbaFuncionariosLayout.setVerticalGroup(
             pAbaFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAbaFuncionariosLayout.createSequentialGroup()
-                .addComponent(lTituloFuncionarios)
+                .addGroup(pAbaFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lTituloFuncionarios)
+                    .addGroup(pAbaFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tbExcluirFuncionario)
+                        .addComponent(bConfirmarExcluirFuncionario)
+                        .addComponent(lConfirmarExcluirFuncionario)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pAbaFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lNomeFuncionario)
@@ -260,7 +327,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(cbSetorFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lSetorFuncionario))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spListagemFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
+                .addComponent(spListagemFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -302,34 +369,62 @@ public class MainFrame extends javax.swing.JFrame {
         });
         spListagemPacientes.setViewportView(liPacientes);
 
+        lConfirmarExcluirPaciente.setText("Certeza?");
+
+        bConfirmarExcluirPaciente.setText("Confirmar");
+        bConfirmarExcluirPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bConfirmarExcluirPacienteActionPerformed(evt);
+            }
+        });
+
+        tbExcluirPaciente.setText("Excluir");
+        tbExcluirPaciente.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tbExcluirPacienteStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout pAbaPacientesLayout = new javax.swing.GroupLayout(pAbaPacientes);
         pAbaPacientes.setLayout(pAbaPacientesLayout);
         pAbaPacientesLayout.setHorizontalGroup(
             pAbaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAbaPacientesLayout.createSequentialGroup()
-                .addComponent(lTituloPacientes)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(pAbaPacientesLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(pAbaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pAbaPacientesLayout.createSequentialGroup()
-                        .addGroup(pAbaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lNomePaciente)
-                            .addComponent(lEmailPaciente))
+                        .addComponent(lTituloPacientes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lConfirmarExcluirPaciente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bConfirmarExcluirPaciente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tbExcluirPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pAbaPacientesLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(pAbaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pAbaPacientesLayout.createSequentialGroup()
-                                .addComponent(tfEmailPaciente)
+                                .addGroup(pAbaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lNomePaciente)
+                                    .addComponent(lEmailPaciente))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bSalvarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(tfNomePaciente)))
-                    .addComponent(spListagemPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, 852, Short.MAX_VALUE))
+                                .addGroup(pAbaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pAbaPacientesLayout.createSequentialGroup()
+                                        .addComponent(tfEmailPaciente)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(bSalvarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tfNomePaciente)))
+                            .addComponent(spListagemPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, 852, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         pAbaPacientesLayout.setVerticalGroup(
             pAbaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAbaPacientesLayout.createSequentialGroup()
-                .addComponent(lTituloPacientes)
+                .addGroup(pAbaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lTituloPacientes)
+                    .addGroup(pAbaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tbExcluirPaciente)
+                        .addComponent(bConfirmarExcluirPaciente)
+                        .addComponent(lConfirmarExcluirPaciente)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pAbaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lNomePaciente)
@@ -340,7 +435,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(tfEmailPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bSalvarPaciente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spListagemPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
+                .addComponent(spListagemPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -398,46 +493,74 @@ public class MainFrame extends javax.swing.JFrame {
         });
         spListagemAtendimentos.setViewportView(liAtendimentos);
 
+        lConfirmarExcluirAtendimento.setText("Certeza?");
+
+        bConfirmarExcluirAtendimento.setText("Confirmar");
+        bConfirmarExcluirAtendimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bConfirmarExcluirAtendimentoActionPerformed(evt);
+            }
+        });
+
+        tbExcluirAtendimento.setText("Excluir");
+        tbExcluirAtendimento.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tbExcluirAtendimentoStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout pAbaAtendimentosLayout = new javax.swing.GroupLayout(pAbaAtendimentos);
         pAbaAtendimentos.setLayout(pAbaAtendimentosLayout);
         pAbaAtendimentosLayout.setHorizontalGroup(
             pAbaAtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAbaAtendimentosLayout.createSequentialGroup()
-                .addComponent(lTituloAtendimentos)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(pAbaAtendimentosLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(pAbaAtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spListagemAtendimentos)
                     .addGroup(pAbaAtendimentosLayout.createSequentialGroup()
-                        .addGroup(pAbaAtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pAbaAtendimentosLayout.createSequentialGroup()
-                                .addComponent(lFuncionarioAtendimento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbFuncionarioAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pAbaAtendimentosLayout.createSequentialGroup()
-                                .addComponent(lObservacoesAtendimento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spObservacoesAtendimento)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                        .addGroup(pAbaAtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lDataHoraAtendimento)
-                            .addComponent(lPacienteAtendimento)
-                            .addComponent(lDiagnosticoAtendimento))
+                        .addComponent(lTituloAtendimentos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lConfirmarExcluirAtendimento)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pAbaAtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cbPacienteAtendimento, javax.swing.GroupLayout.Alignment.LEADING, 0, 340, Short.MAX_VALUE)
-                            .addComponent(tfDiagnosticoAtendimento, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(bConfirmarExcluirAtendimento)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tbExcluirAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pAbaAtendimentosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pAbaAtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(spListagemAtendimentos)
                             .addGroup(pAbaAtendimentosLayout.createSequentialGroup()
-                                .addComponent(ftDataHoraAtendimento)
+                                .addGroup(pAbaAtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pAbaAtendimentosLayout.createSequentialGroup()
+                                        .addComponent(lFuncionarioAtendimento)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cbFuncionarioAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pAbaAtendimentosLayout.createSequentialGroup()
+                                        .addComponent(lObservacoesAtendimento)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(spObservacoesAtendimento)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                                .addGroup(pAbaAtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lDataHoraAtendimento)
+                                    .addComponent(lPacienteAtendimento)
+                                    .addComponent(lDiagnosticoAtendimento))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bSalvarAtendimento)))))
+                                .addGroup(pAbaAtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(cbPacienteAtendimento, javax.swing.GroupLayout.Alignment.LEADING, 0, 340, Short.MAX_VALUE)
+                                    .addComponent(tfDiagnosticoAtendimento, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pAbaAtendimentosLayout.createSequentialGroup()
+                                        .addComponent(ftDataHoraAtendimento)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(bSalvarAtendimento)))))))
                 .addContainerGap())
         );
         pAbaAtendimentosLayout.setVerticalGroup(
             pAbaAtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAbaAtendimentosLayout.createSequentialGroup()
-                .addComponent(lTituloAtendimentos)
+                .addGroup(pAbaAtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lTituloAtendimentos)
+                    .addGroup(pAbaAtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tbExcluirAtendimento)
+                        .addComponent(bConfirmarExcluirAtendimento)
+                        .addComponent(lConfirmarExcluirAtendimento)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pAbaAtendimentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lFuncionarioAtendimento)
@@ -458,7 +581,7 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(ftDataHoraAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(spObservacoesAtendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spListagemAtendimentos, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
+                .addComponent(spListagemAtendimentos, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -514,9 +637,15 @@ public class MainFrame extends javax.swing.JFrame {
         if (setor == null || setor.getId() == 0) {
             tfDescricaoSetor.setText("");
             bSalvarSetor.setText("Cadastrar");
+            desabilitarExclusaoSetores();
         } else {
             tfDescricaoSetor.setText(setor.getDescricao());
             bSalvarSetor.setText("Atualizar");
+            if (setor.getFuncionarios().isEmpty()) {
+                habilitarExclusaoSetores();
+            } else {
+                desabilitarExclusaoSetores();
+            }
         }
     }//GEN-LAST:event_liSetoresValueChanged
 
@@ -563,12 +692,18 @@ public class MainFrame extends javax.swing.JFrame {
             tfSenhaFuncionario.setText("");
             cbSetorFuncionario.setSelectedIndex(-1);
             bSalvarFuncionario.setText("Cadastrar");
+            desabilitarExclusaoFuncionarios();
         } else {
             tfNomeFuncionario.setText(funcionario.getNome());
             tfEmailFuncionario.setText(funcionario.getEmail());
             tfSenhaFuncionario.setText(funcionario.getSenha());
             cbSetorFuncionario.setSelectedItem(_setores.get(_setores.indexOf(funcionario.getSetor())));
             bSalvarFuncionario.setText("Atualizar");
+            if (funcionario.getAtendimentos().isEmpty()) {
+                habilitarExclusaoFuncionarios();
+            } else {
+                desabilitarExclusaoFuncionarios();
+            }
         }
     }//GEN-LAST:event_liFuncionariosValueChanged
 
@@ -609,15 +744,21 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalvarPacienteActionPerformed
 
     private void liPacientesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_liPacientesValueChanged
-        var funcionario = liPacientes.getSelectedValue();
-        if (funcionario == null || funcionario.getId() == 0) {
+        var paciente = liPacientes.getSelectedValue();
+        if (paciente == null || paciente.getId() == 0) {
             tfNomePaciente.setText("");
             tfEmailPaciente.setText("");
             bSalvarPaciente.setText("Cadastrar");
+            desabilitarExclusaoPacientes();
         } else {
-            tfNomePaciente.setText(funcionario.getNome());
-            tfEmailPaciente.setText(funcionario.getEmail());
+            tfNomePaciente.setText(paciente.getNome());
+            tfEmailPaciente.setText(paciente.getEmail());
             bSalvarPaciente.setText("Atualizar");
+            if (paciente.getAtendimentos().isEmpty()) {
+                habilitarExclusaoPacientes();
+            } else {
+                desabilitarExclusaoPacientes();
+            }
         }
     }//GEN-LAST:event_liPacientesValueChanged
 
@@ -679,6 +820,7 @@ public class MainFrame extends javax.swing.JFrame {
             cbFuncionarioAtendimento.setSelectedIndex(-1);
             cbPacienteAtendimento.setSelectedIndex(-1);
             bSalvarAtendimento.setText("Cadastrar");
+            desabilitarExclusaoAtendimentos();
         } else {
             ftDataHoraAtendimento.setText(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(atendimento.getData()));
             tfDiagnosticoAtendimento.setText(atendimento.getDiagnostico());
@@ -686,6 +828,7 @@ public class MainFrame extends javax.swing.JFrame {
             cbFuncionarioAtendimento.setSelectedItem(_funcionarios.get(_funcionarios.indexOf(atendimento.getFuncionario())));
             cbPacienteAtendimento.setSelectedItem(_pacientes.get(_pacientes.indexOf(atendimento.getPaciente())));
             bSalvarPaciente.setText("Atualizar");
+            habilitarExclusaoAtendimentos();
         }
     }//GEN-LAST:event_liAtendimentosValueChanged
 
@@ -694,6 +837,86 @@ public class MainFrame extends javax.swing.JFrame {
         atualizarFuncionarios();
         atualizarPacientes();
     }//GEN-LAST:event_pAbaAtendimentosComponentShown
+
+    private void bConfirmarExcluirSetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConfirmarExcluirSetorActionPerformed
+        var setor = liSetores.getSelectedValue();
+        if (setor == null || setor.getId() == 0) {
+            desabilitarExclusaoSetores();
+            return;
+        }
+        
+        var em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        excluir(setor, em);
+        em.getTransaction().commit();
+        em.close();
+        atualizarSetores();
+    }//GEN-LAST:event_bConfirmarExcluirSetorActionPerformed
+
+    private void tbExcluirSetorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tbExcluirSetorStateChanged
+        lConfirmarExcluirSetor.setVisible(tbExcluirSetor.isSelected());
+        bConfirmarExcluirSetor.setVisible(tbExcluirSetor.isSelected());
+    }//GEN-LAST:event_tbExcluirSetorStateChanged
+
+    private void bConfirmarExcluirFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConfirmarExcluirFuncionarioActionPerformed
+        var funcionario = liFuncionarios.getSelectedValue();
+        if (funcionario == null || funcionario.getId() == 0) {
+            desabilitarExclusaoFuncionarios();
+            return;
+        }
+        
+        var em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        excluirFuncionario(funcionario, em);
+        em.getTransaction().commit();
+        em.close();
+        atualizarFuncionarios();
+    }//GEN-LAST:event_bConfirmarExcluirFuncionarioActionPerformed
+
+    private void tbExcluirFuncionarioStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tbExcluirFuncionarioStateChanged
+        lConfirmarExcluirFuncionario.setVisible(tbExcluirFuncionario.isSelected());
+        bConfirmarExcluirFuncionario.setVisible(tbExcluirFuncionario.isSelected());
+    }//GEN-LAST:event_tbExcluirFuncionarioStateChanged
+
+    private void bConfirmarExcluirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConfirmarExcluirPacienteActionPerformed
+        var paciente = liPacientes.getSelectedValue();
+        if (paciente == null || paciente.getId() == 0) {
+            desabilitarExclusaoPacientes();
+            return;
+        }
+        
+        var em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        excluir(paciente, em);
+        em.getTransaction().commit();
+        em.close();
+        atualizarPacientes();
+    }//GEN-LAST:event_bConfirmarExcluirPacienteActionPerformed
+
+    private void tbExcluirPacienteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tbExcluirPacienteStateChanged
+        lConfirmarExcluirPaciente.setVisible(tbExcluirPaciente.isSelected());
+        bConfirmarExcluirPaciente.setVisible(tbExcluirPaciente.isSelected());
+    }//GEN-LAST:event_tbExcluirPacienteStateChanged
+
+    private void bConfirmarExcluirAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConfirmarExcluirAtendimentoActionPerformed
+        var atendimento = liAtendimentos.getSelectedValue();
+        if (atendimento == null || atendimento.getId() == 0) {
+            desabilitarExclusaoAtendimentos();
+            return;
+        }
+        
+        var em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        excluirAtendimento(atendimento, em);
+        em.getTransaction().commit();
+        em.close();
+        atualizarAtendimentos();
+    }//GEN-LAST:event_bConfirmarExcluirAtendimentoActionPerformed
+
+    private void tbExcluirAtendimentoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tbExcluirAtendimentoStateChanged
+        lConfirmarExcluirAtendimento.setVisible(tbExcluirAtendimento.isSelected());
+        bConfirmarExcluirAtendimento.setVisible(tbExcluirAtendimento.isSelected());
+    }//GEN-LAST:event_tbExcluirAtendimentoStateChanged
 
     private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("AtendimentoHospitalPU");
 
@@ -734,6 +957,62 @@ public class MainFrame extends javax.swing.JFrame {
         Timer timer = new Timer(3000, e -> popup.hide());
         timer.start();
     }
+    
+    private void desabilitarExclusaoSetores() {
+        lConfirmarExcluirSetor.setVisible(false);
+        bConfirmarExcluirSetor.setVisible(false);
+        tbExcluirSetor.setSelected(false);
+        tbExcluirSetor.setEnabled(false);
+    }
+    
+    private void habilitarExclusaoSetores() {
+        lConfirmarExcluirSetor.setVisible(false);
+        bConfirmarExcluirSetor.setVisible(false);
+        tbExcluirSetor.setSelected(false);
+        tbExcluirSetor.setEnabled(true);
+    }
+
+    private void desabilitarExclusaoFuncionarios() {
+        lConfirmarExcluirFuncionario.setVisible(false);
+        bConfirmarExcluirFuncionario.setVisible(false);
+        tbExcluirFuncionario.setSelected(false);
+        tbExcluirFuncionario.setEnabled(false);
+    }
+    
+    private void habilitarExclusaoFuncionarios() {
+        lConfirmarExcluirFuncionario.setVisible(false);
+        bConfirmarExcluirFuncionario.setVisible(false);
+        tbExcluirFuncionario.setSelected(false);
+        tbExcluirFuncionario.setEnabled(true);
+    }
+
+    private void desabilitarExclusaoPacientes() {
+        lConfirmarExcluirPaciente.setVisible(false);
+        bConfirmarExcluirPaciente.setVisible(false);
+        tbExcluirPaciente.setSelected(false);
+        tbExcluirPaciente.setEnabled(false);
+    }
+    
+    private void habilitarExclusaoPacientes() {
+        lConfirmarExcluirPaciente.setVisible(false);
+        bConfirmarExcluirPaciente.setVisible(false);
+        tbExcluirPaciente.setSelected(false);
+        tbExcluirPaciente.setEnabled(true);
+    }
+
+    private void desabilitarExclusaoAtendimentos() {
+        lConfirmarExcluirAtendimento.setVisible(false);
+        bConfirmarExcluirAtendimento.setVisible(false);
+        tbExcluirAtendimento.setSelected(false);
+        tbExcluirAtendimento.setEnabled(false);
+    }
+    
+    private void habilitarExclusaoAtendimentos() {
+        lConfirmarExcluirAtendimento.setVisible(false);
+        bConfirmarExcluirAtendimento.setVisible(false);
+        tbExcluirAtendimento.setSelected(false);
+        tbExcluirAtendimento.setEnabled(true);
+    }
 
     private <T extends Entidade> void salvar(T entidade, EntityManager em) {
         if (entidade.getId() != 0) {
@@ -741,6 +1020,32 @@ public class MainFrame extends javax.swing.JFrame {
         } else {
             em.persist(entidade);
         }
+    }
+    
+    private <T extends Entidade> void excluir(T entidade, EntityManager em) {
+        em.createQuery("DELETE FROM " + entidade.getClass().getSimpleName() + " e WHERE e.id = :id")
+                .setParameter("id", entidade.getId())
+                .executeUpdate();
+    }
+
+    private void excluirFuncionario(Funcionario funcionario, EntityManager em) {
+        var funcionarioGerenciado = em.createQuery("SELECT f FROM Funcionario f WHERE f.id = :id", Funcionario.class)
+                .setParameter("id", funcionario.getId())
+                .getSingleResult();
+        funcionarioGerenciado.getSetor().getFuncionarios().remove(funcionarioGerenciado);
+        salvar(funcionarioGerenciado.getSetor(), em);
+        em.remove(funcionarioGerenciado);
+    }
+
+    private void excluirAtendimento(Atendimento atendimento, EntityManager em) {
+        var atendimentoGerenciado = em.createQuery("SELECT a FROM Atendimento a WHERE a.id = :id", Atendimento.class)
+                .setParameter("id", atendimento.getId())
+                .getSingleResult();
+        atendimentoGerenciado.getFuncionario().getAtendimentos().remove(atendimentoGerenciado);
+        atendimentoGerenciado.getPaciente().getAtendimentos().remove(atendimentoGerenciado);
+        salvar(atendimentoGerenciado.getFuncionario(), em);
+        salvar(atendimentoGerenciado.getPaciente(), em);
+        em.remove(atendimentoGerenciado);
     }
 
     private void carregarSetores() {
@@ -848,6 +1153,10 @@ public class MainFrame extends javax.swing.JFrame {
     private List<Atendimento> _atendimentos = new ArrayList<>(1);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bConfirmarExcluirAtendimento;
+    private javax.swing.JButton bConfirmarExcluirFuncionario;
+    private javax.swing.JButton bConfirmarExcluirPaciente;
+    private javax.swing.JButton bConfirmarExcluirSetor;
     private javax.swing.JButton bSalvarAtendimento;
     private javax.swing.JButton bSalvarFuncionario;
     private javax.swing.JButton bSalvarPaciente;
@@ -856,6 +1165,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<Paciente> cbPacienteAtendimento;
     private javax.swing.JComboBox<Setor> cbSetorFuncionario;
     private javax.swing.JFormattedTextField ftDataHoraAtendimento;
+    private javax.swing.JLabel lConfirmarExcluirAtendimento;
+    private javax.swing.JLabel lConfirmarExcluirFuncionario;
+    private javax.swing.JLabel lConfirmarExcluirPaciente;
+    private javax.swing.JLabel lConfirmarExcluirSetor;
     private javax.swing.JLabel lDataHoraAtendimento;
     private javax.swing.JLabel lDescricaoSetor;
     private javax.swing.JLabel lDiagnosticoAtendimento;
@@ -886,6 +1199,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane spListagemSetores;
     private javax.swing.JScrollPane spObservacoesAtendimento;
     private javax.swing.JTextArea taObservacoesAtendimento;
+    private javax.swing.JToggleButton tbExcluirAtendimento;
+    private javax.swing.JToggleButton tbExcluirFuncionario;
+    private javax.swing.JToggleButton tbExcluirPaciente;
+    private javax.swing.JToggleButton tbExcluirSetor;
     private javax.swing.JTextField tfDescricaoSetor;
     private javax.swing.JTextField tfDiagnosticoAtendimento;
     private javax.swing.JTextField tfEmailFuncionario;

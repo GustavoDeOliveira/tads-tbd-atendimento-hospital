@@ -66,20 +66,29 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="lTituloSetores" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="400" pref="768" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="spListagemSetores" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lDescricaoSetor" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="lTituloSetores" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="lConfirmarExcluirSetor" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="tfDescricaoSetor" max="32767" attributes="0"/>
+                              <Component id="bConfirmarExcluirSetor" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="bSalvarSetor" min="-2" pref="250" max="-2" attributes="0"/>
+                              <Component id="tbExcluirSetor" min="-2" pref="250" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="spListagemSetores" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lDescricaoSetor" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="tfDescricaoSetor" pref="536" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="bSalvarSetor" min="-2" pref="250" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -89,7 +98,12 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="lTituloSetores" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lTituloSetores" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tbExcluirSetor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="bConfirmarExcluirSetor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lConfirmarExcluirSetor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lDescricaoSetor" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -97,7 +111,7 @@
                           <Component id="bSalvarSetor" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="spListagemSetores" pref="530" max="32767" attributes="0"/>
+                      <Component id="spListagemSetores" pref="529" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -156,6 +170,27 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JToggleButton" name="tbExcluirSetor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Excluir"/>
+              </Properties>
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="tbExcluirSetorStateChanged"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="bConfirmarExcluirSetor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Confirmar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bConfirmarExcluirSetorActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lConfirmarExcluirSetor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Certeza?"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="pAbaFuncionarios">
@@ -177,36 +212,45 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="lTituloFuncionarios" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="spListagemFuncionarios" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lNomeFuncionario" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lEmailFuncionario" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="lTituloFuncionarios" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="lConfirmarExcluirFuncionario" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="tfNomeFuncionario" pref="442" max="32767" attributes="0"/>
-                                  <Component id="tfEmailFuncionario" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="bConfirmarExcluirFuncionario" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lSenhaFuncionario" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lSetorFuncionario" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="tbExcluirFuncionario" min="-2" pref="250" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="cbSetorFuncionario" pref="235" max="32767" attributes="0"/>
+                                  <Component id="spListagemFuncionarios" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="lNomeFuncionario" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lEmailFuncionario" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="bSalvarFuncionario" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="tfNomeFuncionario" pref="442" max="32767" attributes="0"/>
+                                          <Component id="tfEmailFuncionario" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="lSenhaFuncionario" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lSetorFuncionario" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="cbSetorFuncionario" pref="235" max="32767" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="bSalvarFuncionario" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="tfSenhaFuncionario" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <Component id="tfSenhaFuncionario" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -217,7 +261,14 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="lTituloFuncionarios" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lTituloFuncionarios" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                              <Component id="tbExcluirFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="bConfirmarExcluirFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lConfirmarExcluirFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lNomeFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -234,7 +285,7 @@
                           <Component id="lSetorFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="spListagemFuncionarios" pref="502" max="32767" attributes="0"/>
+                      <Component id="spListagemFuncionarios" pref="501" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -331,6 +382,27 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JLabel" name="lConfirmarExcluirFuncionario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Certeza?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="bConfirmarExcluirFuncionario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Confirmar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bConfirmarExcluirFuncionarioActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JToggleButton" name="tbExcluirFuncionario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Excluir"/>
+              </Properties>
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="tbExcluirFuncionarioStateChanged"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="pAbaPacientes">
@@ -351,29 +423,38 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lTituloPacientes" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lNomePaciente" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lEmailPaciente" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lTituloPacientes" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="lConfirmarExcluirPaciente" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="bConfirmarExcluirPaciente" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="tbExcluirPaciente" min="-2" pref="250" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="tfEmailPaciente" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="lNomePaciente" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lEmailPaciente" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="bSalvarPaciente" min="-2" pref="250" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="tfEmailPaciente" max="32767" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="bSalvarPaciente" min="-2" pref="250" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="tfNomePaciente" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <Component id="tfNomePaciente" max="32767" attributes="0"/>
+                                  <Component id="spListagemPacientes" pref="852" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="spListagemPacientes" pref="852" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -382,7 +463,14 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="lTituloPacientes" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lTituloPacientes" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                              <Component id="tbExcluirPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="bConfirmarExcluirPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lConfirmarExcluirPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lNomePaciente" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -395,7 +483,7 @@
                           <Component id="bSalvarPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="spListagemPacientes" pref="502" max="32767" attributes="0"/>
+                      <Component id="spListagemPacientes" pref="501" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -464,6 +552,27 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JLabel" name="lConfirmarExcluirPaciente">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Certeza?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="bConfirmarExcluirPaciente">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Confirmar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bConfirmarExcluirPacienteActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JToggleButton" name="tbExcluirPaciente">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Excluir"/>
+              </Properties>
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="tbExcluirPacienteStateChanged"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="pAbaAtendimentos">
@@ -484,41 +593,50 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lTituloAtendimentos" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="spListagemAtendimentos" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lFuncionarioAtendimento" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="cbFuncionarioAtendimento" min="-2" pref="340" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lObservacoesAtendimento" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="spObservacoesAtendimento" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace pref="28" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lDataHoraAtendimento" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lPacienteAtendimento" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lDiagnosticoAtendimento" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="lTituloAtendimentos" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="lConfirmarExcluirAtendimento" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="cbPacienteAtendimento" alignment="0" pref="340" max="32767" attributes="0"/>
-                                  <Component id="tfDiagnosticoAtendimento" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="ftDataHoraAtendimento" max="32767" attributes="0"/>
+                              <Component id="bConfirmarExcluirAtendimento" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="tbExcluirAtendimento" min="-2" pref="250" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="spListagemAtendimentos" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lFuncionarioAtendimento" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="cbFuncionarioAtendimento" min="-2" pref="340" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lObservacoesAtendimento" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="spObservacoesAtendimento" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace pref="28" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="lDataHoraAtendimento" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lPacienteAtendimento" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lDiagnosticoAtendimento" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="bSalvarAtendimento" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="cbPacienteAtendimento" alignment="0" pref="340" max="32767" attributes="0"/>
+                                          <Component id="tfDiagnosticoAtendimento" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="ftDataHoraAtendimento" max="32767" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="bSalvarAtendimento" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -530,7 +648,14 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="lTituloAtendimentos" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lTituloAtendimentos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                              <Component id="tbExcluirAtendimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="bConfirmarExcluirAtendimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lConfirmarExcluirAtendimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lFuncionarioAtendimento" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -556,7 +681,7 @@
                           <Component id="spObservacoesAtendimento" alignment="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="spListagemAtendimentos" pref="474" max="32767" attributes="0"/>
+                      <Component id="spListagemAtendimentos" pref="473" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -683,6 +808,27 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JLabel" name="lConfirmarExcluirAtendimento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Certeza?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="bConfirmarExcluirAtendimento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Confirmar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bConfirmarExcluirAtendimentoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JToggleButton" name="tbExcluirAtendimento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Excluir"/>
+              </Properties>
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="tbExcluirAtendimentoStateChanged"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
